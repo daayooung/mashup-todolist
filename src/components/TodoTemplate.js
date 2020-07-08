@@ -17,9 +17,14 @@ const TodoTemplateBlock = styled.div`
   display: flex;
   flex-direction: column;
 `;
+// Tagged Template Literal
 
 function TodoTemplate({ children }) {
   return <TodoTemplateBlock>{children}</TodoTemplateBlock>;
+  // TodoTemplate가 안의 TodoList 요소들을 감싸주기 때문에 component들이
+  // 적용되기위해서는 children props를 넣어주어야 한다.
+
+  // <TodoTemplateBlock> : styled-component
 }
 
 export default TodoTemplate;

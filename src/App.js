@@ -6,9 +6,9 @@ import TodoList from './components/TodoList';
 import TodoCreate from './components/TodoCreate';
 
 const GlobalStyle = createGlobalStyle`
-body {
-  background: #e9ecef;
-}
+  body{
+    background: #e9ecef;
+  }
 `;
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <TodoTemplate>
         <TodoHead />
         <TodoList />
-        <TodoCreate />
+        {/* <TodoCreate /> */}
       </TodoTemplate>
     </>
   );

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
+//  react-icons :  Font Awesome, Ionicons, Material Design Icons, 등의 아이콘들을 컴포넌트 형태로 쉽게 사용 할 수 있다.
+// Material Design Icons의 MdDone 과 MdDelete 아이콘을 사용.
 
 const Remove = styled.div`
   display: flex;
