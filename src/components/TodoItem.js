@@ -20,14 +20,14 @@ const Remove = styled.div`
 const TodoItemBlock = styled.div`
   display: flex;
   align-items: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 0;
   &:hover {
     ${Remove} {
       display: initial;
     }
   }
 `;
+// ${} : Component Selector. TodoItemBlock 위에 커서가 있을 때, Remove 컴포넌트를 보여주라는 의미.
 
 const CheckCircle = styled.div`
   width: 32px;
@@ -58,6 +58,7 @@ const Text = styled.div`
       color: #ced4da;
     `}
 `;
+// flex: 1; : 영역에 꽉차게
 
 function TodoItem({ id, done, text }) {
   return (
@@ -70,5 +71,8 @@ function TodoItem({ id, done, text }) {
     </TodoItemBlock>
   );
 }
+// TodoList component에서 props로 준 done, text를 TodoItem component으로 받아왔다.
+// CheckCircle component의 done= 에 props done값 할당, tag와 tag 사이에 보여줄 내용에 done이 true일 때 <MdDone /> (체크표시 아이콘)을 보여준다.
+// Text component의 done= 에 props done값 할당, tag와 tag 사이에 보여줄 내용에 text값 할당
 
 export default TodoItem;

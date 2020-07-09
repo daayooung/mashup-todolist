@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { MdAdd } from 'react-icons/md';
+// react-icons/md 의 MdAdd 사용
 
 const CircleButton = styled.button`
   background: #38d9a9;
@@ -15,9 +16,6 @@ const CircleButton = styled.button`
   cursor: pointer;
   width: 80px;
   height: 80px;
-  display: block;
-  align-items: center;
-  justify-content: center;
   font-size: 60px;
   position: absolute;
   left: 50%;
@@ -30,6 +28,8 @@ const CircleButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  // 안에 MdAdd 중앙 정렬
 
   transition: 0.125s all ease-in;
   ${(props) =>
@@ -45,6 +45,8 @@ const CircleButton = styled.button`
       transform: translate(-50%, 50%) rotate(45deg);
     `}
 `;
+// open이 true일 때
+// CircleButton의 색을 빨강으로 바꾸고 애니메이션 효과를 준다.
 
 const InsertFormPositioner = styled.div`
   width: 100%;
@@ -91,6 +93,10 @@ function TodoCreate() {
         <MdAdd />
       </CircleButton>
     </>
+    // CircleButton component안에 MdAdd를 보여준다
+    // CircleButton component를 클릭하면 onToggle을 실행하는데,
+    // onToggle은 false가 default였던 open의 값을 true로 바꿔주는 함수이다.
+    // onClick으로 인해 바뀐 open값을 open=에 할당해준다.
   );
 }
 
