@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTodoState } from '../TodoContext';
+// TodoHead component에서 useTodoState 사용
 
 const TodoHeadBlcok = styled.div`
   padding-top: 48px;
@@ -26,6 +28,8 @@ const TodoHeadBlcok = styled.div`
 `;
 
 function TodoHead() {
+  const todos = useTodoState();
+  console.log(todos);
   return (
     <TodoHeadBlcok>
       <h1>2020년 7월 8일</h1>
