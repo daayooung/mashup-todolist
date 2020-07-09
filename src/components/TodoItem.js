@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
 //  react-icons :  Font Awesome, Ionicons, Material Design Icons, 등의 아이콘들을 컴포넌트 형태로 쉽게 사용 할 수 있다.
 // Material Design Icons의 MdDone 과 MdDelete 아이콘을 사용.
+import { useTodoDispatch } from '../TodoContext';
 
 const Remove = styled.div`
   display: flex;
@@ -61,11 +62,16 @@ const Text = styled.div`
 // flex: 1; : 영역에 꽉차게
 
 function TodoItem({ id, done, text }) {
+  const dispatch = useTodoDispatch();
+  const onToggle = () => dispatch({ type: 'TOGGLE', id });
+  const onRemove = () => dispatch({ type: 'REMOVE', id });
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <CheckCircle done={done} onClick={onToggle}>
+        {done && <MdDone />}
+      </CheckCircle>
       <Text done={done}>{text}</Text>
-      <Remove>
+      <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>
     </TodoItemBlock>
@@ -75,4 +81,5 @@ function TodoItem({ id, done, text }) {
 // CheckCircle component의 done= 에 props done값 할당, tag와 tag 사이에 보여줄 내용에 done이 true일 때 <MdDone /> (체크표시 아이콘)을 보여준다.
 // Text component의 done= 에 props done값 할당, tag와 tag 사이에 보여줄 내용에 text값 할당
 
-export default TodoItem;
+//다른 항목이 업데이트 될 때, 불필요한 리렌더링을 방지, 성능 최적화
+export default React.memo(TodoItem);
